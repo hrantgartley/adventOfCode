@@ -7,7 +7,7 @@ import (
 
 type Coordinate struct{ i, j int }
 
-const Size = 140
+const size = 140
 
 func parse() map[Coordinate]byte {
 	scanner := bufio.NewScanner(os.Stdin)

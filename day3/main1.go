@@ -6,8 +6,8 @@ func main() {
 	grid := parse()
 
 	sum := 0
-	for row := 0; row < Size; row++ {
-		for col := 0; col < Size; col++ {
+	for row := 0; row < size; row++ {
+		for col := 0; col < size; col++ {
 
 			currentCoordinate := Coordinate{row, col}
 			currentCharacter := grid[currentCoordinate]
