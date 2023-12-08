@@ -1,5 +1,8 @@
 package main
 
+/*
+Sources used: geeksforgeeks for nested structs
+*/
 import (
 	"strconv"
 	"strings"
