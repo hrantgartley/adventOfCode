@@ -5,14 +5,14 @@ import (
 	"os"
 )
 
-type C struct{ i, j int }
+type Coordinate struct{ i, j int }
 
 const Size = 140
 
-func parse() map[C]byte {
+func parse() map[Coordinate]byte {
 	scanner := bufio.NewScanner(os.Stdin)
 
-	m := map[C]byte{}
+	m := map[Coordinate]byte{}
 
 	for i := 0; scanner.Scan(); i++ {
 		line := scanner.Text()
@@ -22,7 +22,7 @@ func parse() map[C]byte {
 			if c == '.' {
 				continue
 			}
-			m[C{i, j}] = c
+			m[Coordinate{i, j}] = c
 		}
 	}
 	return m
