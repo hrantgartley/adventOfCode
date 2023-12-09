@@ -1,11 +1,11 @@
 create:
-	touch main1.go main2.go common.go input
+	touch main1.go main2.go input
 
 main1:
-	go build -o main1 main1.go common.go
+	go build -o main1 main1.go
 
 main2:
-	go build -o main2 main2.go common.go
+	go build -o main2 main2.go
 
 .PHONY: run1 run2 clean
 
