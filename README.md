@@ -13,3 +13,5 @@
 - Note: This script assumes that you have the Advent of Code session cookie
   stored in a file called `session.txt` in the same directory as the script. You
   can get the cookie from your browser's developer tools. Also curl is required
+
+- Update: setup script works with windows powershell
