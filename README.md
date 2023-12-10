@@ -11,5 +11,5 @@
   It also creates a test file for the day downloaded from the Advent of Code.
 
 - Note: This script assumes that you have the Advent of Code session cookie
-  stored in a file called `cookie.txt` in the same directory as the script. You
+  stored in a file called `session.txt` in the same directory as the script. You
   can get the cookie from your browser's developer tools. Also curl is required
