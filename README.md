@@ -3,7 +3,7 @@
 ## Usage
 
 ```bash
-./setup.sh {day}
+./setup.sh {day} {year}
 
 ```
 
