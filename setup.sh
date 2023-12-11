@@ -38,6 +38,18 @@ EOM
 
 	curl -sS --cookie "session=$SESSION_COOKIE" $URL >$DEST_INPUT
 	echo "Directory 'day$DAY' created with necessary files for years 2015-2022."
+    cat <<EOM >$DEST_MAKEFILE
+main:
+	go build main.go
+
+.PHONY: run clean
+
+run: main
+	./main <input
+
+clean:
+	rm -f main
+EOM
 
 else
 
@@ -90,6 +102,8 @@ EOM
 
 fi
 
+
+if [ "$YEAR" -eq 2023 ]; then
 cat <<EOM >$DEST_MAKEFILE
 main1:
     go build -o main1 main1.go common.go
@@ -108,6 +122,7 @@ run2: main2
 clean:
     rm -f main1 main2
 EOM
+fi
 
 if [ -s $DEST_MAKEFILE ]; then
 	echo "Makefile created successfully"
