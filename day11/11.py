@@ -11,7 +11,6 @@ with open("input") as file:
         else:
             rows[row] = False
 
-            # input.insert(row,'.'*len(input[row]))
     # expand horizontally
     for col in range(len(input[0])):
         expand = True
