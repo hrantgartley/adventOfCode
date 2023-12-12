@@ -14,23 +14,21 @@ mkdir -p "$DIR"
 URL="https://adventofcode.com/${YEAR}/day/${DAY}/input"
 
 DEST_INPUT="$DIR/input"
-DEST_MAKEFILE="$DIR/Makefile"
-
-if [ "$YEAR" -lt 2023 ]; then
-	DEST_MAIN="$DIR/main.go"
+DEST_MAIN="$DIR/main.py"
 
 	# Create main.go file
-	cat <<EOM >$DEST_MAIN
-    package main
+cat <<EOM >$DEST_MAIN
+def part1():
+    print("This is main.py for Day $DAY")
+    # Your code here
 
-    import (
-        "fmt"
-    )
+def part2():
+    print("This is main.py for Day $DAY")
+    # Your code here
 
-    func main() {
-        fmt.Println("This is main.go for Day $DAY")
-        // Your code here
-    }
+if __name__ == "__main__":
+    part1()
+    part2()
 EOM
 
 	# Create an empty input file
@@ -38,18 +36,6 @@ EOM
 
 	curl -sS --cookie "session=$SESSION_COOKIE" $URL >$DEST_INPUT
 	echo "Directory 'day$DAY' created with necessary files for years 2015-2022."
-    cat <<EOM >$DEST_MAKEFILE
-main:
-	go build main.go
-
-.PHONY: run clean
-
-run: main
-	./main <input
-
-clean:
-	rm -f main
-EOM
 
 else
 
@@ -62,79 +48,21 @@ else
 		exit 1
 	fi
 
-	DEST_MAIN1="$DIR/main1.go"
-	DEST_MAIN2="$DIR/main2.go"
-	DEST_COMMON="$DIR/common.go"
+	DEST_MAIN1="$DIR/main.py"
 
-	cat <<EOM >$DEST_MAIN1
-    package main
+cat <<EOM >$DEST_MAIN1
+def part1():
+    print("This is main.py for Day $DAY")
+    # Your code here
 
-    import (
-        "fmt"
-    )
+def part2():
+    print("This is main.py for Day $DAY")
+    # Your code here
 
-    func main() {
-        fmt.Println("This is main1.go for Day $DAY")
-        // Your code here
-    }
+if __name__ == "__main__":
+    part1()
+    part2()
 EOM
 
-	cat <<EOM >$DEST_MAIN2
-    package main
-
-    import (
-        "fmt"
-    )
-
-    func main() {
-        fmt.Println("This is main2.go for Day $DAY")
-        // Your code here
-    }
-EOM
-
-	cat <<EOM >$DEST_COMMON
-    package main
-
-    // Your common functions or structs here
-EOM
 
 	echo "Directory 'day$DAY' created with necessary files for 2023."
-
-fi
-
-
-if [ "$YEAR" -eq 2023 ]; then
-cat <<EOM >$DEST_MAKEFILE
-main1:
-    go build -o main1 main1.go common.go
-
-main2:
-    go build -o main2 main2.go common.go
-
-.PHONY: run1 run2 clean
-
-run1: main1
-    ./main1 <input
-
-run2: main2
-    ./main2 <input
-
-clean:
-    rm -f main1 main2
-EOM
-else
-    echo ""
-fi
-
-if [ -s $DEST_MAKEFILE ]; then
-	echo "Makefile created successfully"
-else
-	echo "Failed to create Makefile"
-	exit 1
-fi
-
-cd "$DIR" || exit
-go mod init $DAY
-go mod tidy
-
-echo "go.mod and go.sum created successfully"
