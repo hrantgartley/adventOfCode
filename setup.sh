@@ -24,11 +24,11 @@ DEST_MAIN="$DIR/main.py"
 # Create main.py file
 cat <<EOM >"$DEST_MAIN"
 def part1():
-    print("This is main.py for Day $DAY")
+    print("This is main.py for $YEAR Day $DAY")
     # Your code here
 
 def part2():
-    print("This is main.py for Day $DAY")
+    print("This is main.py for $YEAR Day $DAY")
     # Your code here
 
 if __name__ == "__main__":
