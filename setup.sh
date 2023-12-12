@@ -122,6 +122,8 @@ run2: main2
 clean:
     rm -f main1 main2
 EOM
+else
+    echo ""
 fi
 
 if [ -s $DEST_MAKEFILE ]; then
