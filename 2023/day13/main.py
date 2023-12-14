@@ -23,7 +23,7 @@ def part1():
         col = find_mirror(list(zip(*grid)))
         total += col
 
-    print(total)
+    print(f"Part 1 {total}")
 
 
 def part2():
@@ -48,7 +48,7 @@ def part2():
         col = find_mirror(list(zip(*grid)))
         total += col
 
-    print(total)
+    print(f"Part 2 {total}")
 
 
 if __name__ == "__main__":
