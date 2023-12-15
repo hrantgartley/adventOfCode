@@ -3,8 +3,6 @@
 #include <iostream>
 #include <sstream>
 
-// Define your hash function (you can replace this with your specific hash
-// function)
 size_t customHash(std::string str) {
     size_t value = 0;
     for (int i = 0; i < str.length(); i++) {
@@ -30,7 +28,6 @@ int main() {
         std::string token;
 
         while (std::getline(ss, token, ',')) {
-            // Apply hash function to each token
             totalHash += customHash(token);
         }
     }
