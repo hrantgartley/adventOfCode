@@ -1,12 +1,13 @@
 def part1():
     from collections import deque
+    from typing import Tuple, Set, Deque, List
 
     grid = open('input').read().splitlines()
 
 # r, c, dr, dc
-    a = [(0, -1, 0, 1)]
-    seen = set()
-    q = deque(a)
+    a: List[Tuple[int, int, int, int]] = [(0, -1, 0, 1)]
+    seen: Set[Tuple[int, int, int, int]] = set()
+    q: Deque[Tuple[int, int, int, int]] = deque(a)
 
     while q:
         r, c, dr, dc = q.popleft()
