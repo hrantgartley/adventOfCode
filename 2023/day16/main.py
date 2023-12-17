@@ -1,6 +1,6 @@
 def part1():
     from collections import deque
-    from typing import Tuple, Set, Deque, List
+    from typing import Deque, List, Set, Tuple
 
     grid = open('input').read().splitlines()
 
@@ -101,7 +101,7 @@ def part2():
         max_val = max(max_val, calc(-1, c, 1, 0))
         max_val = max(max_val, calc(len(grid), c, -1, 0))
 
-    print(f"part 2{max_val}")
+    print(f"part 2 {max_val}")
 
 
 if __name__ == "__main__":
