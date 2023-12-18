@@ -48,3 +48,8 @@ else
 	echo "The downloaded input file is empty or incomplete."
 	exit 1
 fi
+
+cd "$DIR" || {
+	echo "Failed to change directory to '$DIR'."
+	exit 1
+}
