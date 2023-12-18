@@ -1,5 +1,7 @@
+from heapq import heappop, heappush
+
+
 def part1():
-    from heapq import heappush, heappop
 
     grid = [list(map(int, line.strip())) for line in open('input')]
 
@@ -34,7 +36,6 @@ def part1():
 
 
 def part2():
-    from heapq import heappush, heappop
 
     grid = [list(map(int, line.strip())) for line in open('input')]
 
