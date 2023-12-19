@@ -1,12 +1,12 @@
 def part1():
     points = [(0, 0)]
-    dirs = {"U": (-1, 0), "D": (1, 0), "L": (0, -1), "R": (0, 1)}
+    directions = {"U": (-1, 0), "D": (1, 0), "L": (0, -1), "R": (0, 1)}
 
     b = 0
 
     for line in open('input'):
         d, n, _ = line.split()
-        dr, dc = dirs[d]
+        dr, dc = directions[d]
         n = int(n)
         b += n
         r, c = points[-1]
