@@ -18,7 +18,7 @@ def part1():
             final.add((row,column))
         if start == 0:
             continue
-        
+
         for new_row, new_col in [(row +1, column), (row-1,column), (row,column+1), (row, column-1)]:
             if new_row < 0 or new_row >= len(grid) or \
                 new_col < 0 or new_col >= len(grid[0]) or grid[new_row][new_col] == "#" \
@@ -61,7 +61,7 @@ def part2():
                     continue
                 seen.add((nr, nc))
                 q.append((nr, nc, s - 1))
-        
+
         return len(ans)
 
     grid_width = steps // size - 1
