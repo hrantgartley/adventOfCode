@@ -92,8 +92,7 @@ def part2():
 
     print(
         odd * odd_points +
-        even * even_points +
-        corner_t + corner_r + corner_b + corner_l +
+        even * even_points + corner_t + corner_r + corner_b + corner_l +
         (grid_width + 1) * (small_tr + small_tl + small_br + small_bl) +
         grid_width * (large_tr + large_tl + large_br + large_bl)
     )
