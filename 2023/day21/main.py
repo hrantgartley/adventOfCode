@@ -22,7 +22,8 @@ def part1():
 
         for new_row, new_col in [(row + 1, column), (row-1, column), (row, column+1), (row, column-1)]:
             if new_row < 0 or new_row >= len(grid) or \
-                    new_col < 0 or new_col >= len(grid[0]) or grid[new_row][new_col] == "#" \
+                    new_col < 0 or new_col >= len(grid[0]) \
+                    or grid[new_row][new_col] == "#" \
                     or (new_row, new_col) in seen:
                 continue
             seen.add((new_row, new_col))
@@ -41,10 +42,10 @@ def part2():
     assert len(grid) == len(grid[0])
 
     size = len(grid)
-    steps = 26501365
+    STEPS = 26501365
 
     assert sr == sc == size // 2
-    assert steps % size == size // 2
+    assert STEPS % size == size // 2
 
     def fill(sr, sc, ss):
         ans = set()
@@ -60,14 +61,16 @@ def part2():
                 continue
 
             for new_row, new_col in [(row + 1, col), (row - 1, col), (row, col + 1), (row, col - 1)]:
-                if new_row < 0 or new_row >= len(grid) or new_col < 0 or new_col >= len(grid[0]) or grid[new_row][new_col] == "#" or (new_row, new_col) in seen:
+                if new_row < 0 or new_row >= len(grid) or \
+                    new_col < 0 or new_col >= len(grid[0]) \
+                    or grid[new_row][new_col] == "#" or (new_row, new_col) in seen:
                     continue
                 seen.add((new_row, new_col))
                 q.append((new_row, new_col, start - 1))
 
         return len(ans)
 
-    grid_width = steps // size - 1
+    grid_width = STEPS // size - 1
 
     odd = (grid_width // 2 * 2 + 1) ** 2
     even = ((grid_width + 1) // 2 * 2) ** 2
