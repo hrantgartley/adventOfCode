@@ -27,5 +27,10 @@ def part1():
     print(math.prod(map(len, subsets)))
 
 
+def part2():
+    print("Advent of Code 2023 complete... not part2 for this section")
+
+
 if __name__ == "__main__":
     part1()
+    part2()
