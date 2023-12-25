@@ -14,7 +14,7 @@ def part1():
     def ss(v): return next(s for s in subsets if v in s)
 
     while True:
-        subsets = [{v} for v in V]
+        subsets: list = [{v} for v in V]
 
         while len(subsets) > 2:
             s1, s2 = map(ss, random.choice([*E]))
