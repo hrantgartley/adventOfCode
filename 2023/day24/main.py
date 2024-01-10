@@ -7,10 +7,10 @@ def part1():
 
     total = 0
 
-    for i, hs1 in enumerate(hailstones):
-        for hs2 in hailstones[:i]:
-            a1, b1, c1 = hs1.a, hs1.b, hs1.c
-            a2, b2, c2 = hs2.a, hs2.b, hs2.c
+    for index, hs1 in enumerate(hailstones):
+        for hs2 in hailstones[:index]:
+            a1, b1, c1 = hs1.alpha, hs1.beta, hs1.charlie
+            a2, b2, c2 = hs2.alpha, hs2.beta, hs2.charlie
             if a1 * b2 == b1 * a2:
                 continue
             x = (c1 * b2 - c2 * b1) / (a1 * b2 - a2 * b1)
@@ -32,14 +32,17 @@ def part2():
     final_positions = []
 
     for index, (stone_x, stone_y, stone_z, stone_vx, stone_vy, stone_vz) in enumerate(hailstones):
-        position_equations.append((final_x - stone_x) * (stone_vy - final_vy) - (final_y - stone_y) * (stone_vx - final_vx))
-        position_equations.append((final_y - stone_y) * (stone_vz - final_vz) - (final_z - stone_z) * (stone_vy - final_vy))
+        position_equations.append((final_x - stone_x) * (stone_vy - final_vy) -
+                                  (final_y - stone_y) * (stone_vx - final_vx))
+        position_equations.append((final_y - stone_y) * (stone_vz - final_vz) -
+                                  (final_z - stone_z) * (stone_vy - final_vy))
 
         if index < 2:
             continue
 
         solutions = sympy.solve(position_equations)
-        integer_solutions = [sol for sol in solutions if all(val % 1 == 0 for val in sol.values())] if solutions else []
+        integer_solutions = [sol for sol in solutions if all(val % 1 == 0 for val in sol.values())] \
+            if solutions else []
 
         if len(integer_solutions) == 1:
             final_positions = integer_solutions

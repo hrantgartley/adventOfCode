@@ -7,9 +7,9 @@ class Hailstone:
         self.vy = vy
         self.vz = vz
 
-        self.a = vy
-        self.b = -vx
-        self.c = vy * sx - vx * sy
+        self.alpha = vy
+        self.beta = -vx
+        self.charlie = vy * sx - vx * sy
 
     def __repr__(self):
-        return "Hailstone{" + f"a={self.a}, b={self.b}, c={self.c}" + "}"
+        return "Hailstone{" + f"a={self.alpha}, b={self.beta}, c={self.charlie}" + "}"
